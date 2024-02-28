@@ -18,6 +18,7 @@ class FlaskLogging(GeneralLogging):
     def __init__(self, logger_name: str) -> None:
         """
         This function is used to initialize the FlaskLogging object.
+
         Args:
             logger_name (str): The name of the logger.
         Output:
@@ -28,6 +29,7 @@ class FlaskLogging(GeneralLogging):
     def config_unique_id(self, app: Flask) -> None:
         """
         This function is used to configure a unique request id for each request.
+
         Args:
             NONE
         Output:
