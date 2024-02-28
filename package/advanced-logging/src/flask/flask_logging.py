@@ -20,7 +20,7 @@ class FlaskLogging(GeneralLogging):
         This function is used to initialize the FlaskLogging object.
 
         Args:
-            logger_name (str): The name of the logger.
+            logger_name (str): The name of the logger (Flask Application).
         Output:
             NONE
         """
