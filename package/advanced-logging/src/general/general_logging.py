@@ -29,37 +29,6 @@ class GeneralLogging:
         # file in which is GeneralLogger is being called, if logger_name is not provided.
         self.logger = logging.getLogger(logger_name)
 
-    def config_file_logging(self) -> logging.Logger:
-        """
-        This function is used to create a logger object, which will direct the logs
-        to the default file.
-
-        Args:
-           NONE
-        Output:
-            logger (logging.Logger): The logger object.
-        """
-        # Set the log levels to default file_paths.
-        for log_level, file_path in constants.LOG_LEVELS.items():
-            # Get the default file path for the log level.
-            file_path = file_path.format(constants.DEFAULT_LOG_DIR.format(self.logger_name))
-
-            # Create a file handler. If the file does not exist, create it.
-            try:
-                file_handler = logging.FileHandler(filename=file_path)
-            except FileNotFoundError:
-                with open(file_path, "w") as file:
-                    pass
-                file_handler = logging.FileHandler(filename=file_path)
-
-            # Set the log level of the file handler.
-            file_handler.setLevel(constants.LOG_LEVELS.get(log_level))
-
-            # Add the file handler to the logger.
-            self.logger.addHandler(file_handler)
-
-        return self.logger
-
     def config_file_logging(self, config: dict) -> logging.Logger:
         """
         This function is used to create a logger object, which will direct the logs
